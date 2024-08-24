@@ -1,0 +1,131 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+}
+#nbar{
+    background-color: goldenrod !important;
+}
+
+nav {
+    background-color: goldenrod;
+    padding: 10px 0;
+    text-align: center;
+    align-content: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: white !important;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+section {
+    margin: 20px 5%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+input[type="text"], input[type="url"], textarea, button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+/* Additional styling for icons and special buttons */
+.icon {
+    color: goldenrod;
+    margin-right: 5px;
+}
+
+/* Responsive styling adjustments */
+@media (max-width: 600px) {
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+    button {
+        width: auto;
+    }
+}
+.timeline .container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    left: 50%;
+}
+
+.right::after {
+    left: -15px;
+}
+
+.icon {
+    position: absolute;
+    top: calc(50% - 20px);
+    right: -40px;
+    background-color: #fff;
+    color: #f9b233;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.date {
+    color: #f9b233;
+    font-size: 12px;
+}
+
+.content {
+    padding: 20px 30px;
+    background-color: rgb(234, 210, 121);
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#notificationList li.unread {
+    font-weight: bold;
+}

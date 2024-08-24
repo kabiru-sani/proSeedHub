@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>proSEED Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body class="bg-dark">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light" id="nbar">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">proSEED</a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="#opportunities">Opportunities</a></li>
+              <li class="nav-item"><a class="nav-link" href="#community">Community Discussions</a></li>
+              <li class="nav-item"><a class="nav-link" href="#profile">Profile</a></li>
+              <li class="nav-item"><a class="nav-link" href="#walletConnect">Wallet Connect</a></li>
+              <li class="nav-item"><a class="nav-link" href="#roadmap">Roadmap</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <!-- <nav class="col-lg-12 col-sm-6">
+        <ul>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#opportunities">Opportunities</a></li>
+            <li><a href="#community">Community Discussions</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#walletConnect">Wallet Connect</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+        </ul>
+    </nav> -->
+
+    <section id="dashboard" class="col-lg-10 offset-1">
+        <h1>Welcome to proSEED Hub</h1>
+        <p>Access your dashboard with tasks, notifications, and the opportunities available!</p>
+    </section>
+    
+    <section id="notifications" class="col-lg-10 offset-1">
+        <div id="notifications">
+            <h3>Notifications</h3>
+            <ul id="notificationList"></ul>
+            <button id="markReadBtn" class="btn btn-dark col-12">Mark All as Read</button>
+        </div> 
+
+        <section id="activityLogs" class="col-lg-10 offset-1">
+            <h2>User Activity</h2>
+            <ul id="logsList"></ul>
+        </section>
+        
+    </section>
+
+    <section id="profile-creation" class="col-lg-10 offset-1">
+        <h2>Create Your Profile</h2>
+        <form id="profileForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="country" required>
+
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="name" required>
+
+            <label for="email">Email Address:</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="skills">Skills:</label>
+            <input type="text" id="skills" name="skills" required>
+
+            <label for="experience">Experience:</label>
+            <textarea id="experience" name="experience" required></textarea>
+            
+            <label for="profileLink">Media Profile Link:</label>
+            <input type="url" id="profileLink" name="profileLink">
+
+            <button type="submit" class="btn btn-dark col-12 mt-2">Create Profile</button>
+        </form>
+    </section>
+
+    <section id="adminPanel" class="col-lg-10 offset-1">
+        <h2>Admin Panel</h2>
+        <p>Manage users, view reports, etc.</p>
+    </section>
+    
+    <section id="moderatorPanel" class="col-lg-10 offset-1">
+        <h2>Moderator Panel</h2>
+        <p>Manage discussions, moderate content, etc.</p>
+    </section>
+    
+    <section id="auth" class="col-lg-10 offset-1">
+        <h2>Sign Up / Log In</h2>
+        <form id="authForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+    
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required class="form-control mb-2">
+            <button type="button" id="registerBtn" class="btn btn-dark col-12">Sign Up</button>
+            <button type="button" id="loginBtn" class="btn btn-dark col-12 mt-2">Log In</button>
+        </form>
+        <p id="authMessage"></p>
+    </section>
+    <section id="password-reset" class="col-lg-10 offset-1">
+            <h2>Reset Password</h2>
+            <form id="resetRequestForm">
+                <label for="resetEmail">Email:</label>
+                <input type="email" id="resetEmail" name="resetEmail" required class="form-control mb-2">
+                <button type="button" id="requestResetBtn" class="btn btn-dark col-12">Request Password Reset</button>
+            </form>
+            <p id="resetRequestMessage"></p>
+    </section>
+        
+    <section id="password-reset-form" class="col-lg-10 offset-1">
+        <h2>Enter New Password</h2>
+        <form id="resetForm">
+            <label for="newPassword">New Password:</label>
+            <input type="password" id="newPassword" name="newPassword" required class="form-control mb-2">
+            <button type="button" id="resetPasswordBtn" class="btn btn-dark col-12">Reset Password</button>
+        </form>
+        <p id="resetMessage"></p>
+    </section>
+
+    <section id="dailyCheckIn" class="col-lg-10 offset-1">
+        <h2>Daily Check-In</h2>
+        <p id="checkInMessage">Check-in daily to earn points!</p>
+        <button type="button" id="checkInBtn" class="btn btn-dark col-12">Check-In</button>
+        <p id="pointsDisplay">Points: 1000</p>
+        <button type="button" id="redeemBtn" class="btn btn-dark col-12">Redeem Points for Tokens</button>
+    </section>
+
+    <section id="dailyTasks" class="col-lg-10 offset-1">
+        <h2>Daily Tasks</h2>
+        <ul>
+            <li id="taskQuiz">Take the Daily Quiz - 200 points <button id="quizBtn" class="btn btn-dark col-12">Complete</button></li>
+            <li id="taskShare">Share Content - 150 points <button id="shareBtn"class="btn btn-dark col-12">Complete</button></li>
+            <li id="taskReferral">Refer a Friend - 300 points <button id="referralBtn" class="btn btn-dark col-12">Complete</button></li>
+            <li id="taskParticipation">Participate in Community - 150 points <button id="participationBtn" class="btn btn-dark col-12">Complete</button></li>
+        </ul>
+        <p id="taskMessage"></p>
+    </section>
+
+    <section id="rewards" class="col-lg-10 offset-1">
+        <h2>Redeem Your Rewards</h2>
+        <ul>
+            <li>Exclusive NFT - 5000 points <button  id="redeemNFTBtn" class="btn btn-dark col-12">Redeem</button></li>
+            <li>Premium Access - 10000 points <button id="redeemPremiumBtn" class="btn btn-dark col-12">Redeem</button></li>
+            <li>Discount Coupon - 2000 points <button id="redeemCouponBtn" class="btn btn-dark col-12">Redeem</button></li>
+        </ul>
+        <p id="rewardsMessage"></p>
+    </section> 
+
+    <section id="leaderboard" class="col-lg-10 offset-1">
+        <h2>Leaderboard</h2>
+        <ul id="leaderboardList"></ul>
+    </section>
+
+    <section id="projects" class="col-lg-10 offset-1">
+        <h1>Register New Project</h1>
+        <form id="projectForm">
+            <label for="title">Project Title:</label>
+            <input type="text" id="title" required>
+            <label for="title">Project Native Token:</label>
+            <input type="text" id="token" required>
+            <label for="profileLink">Media Profile Link:</label>
+            <input type="url" id="profileLink" name="profileLink">
+            <label for="profileLink">Website:</label>
+            <input type="url" id="website" name="website">
+            <label for="whitepaper">Whitepaper Link:</label>
+            <input type="url" id="whitepaper" name="whitepaper">
+            <label for="pitchDeck">Pitch-Deck Link:</label>
+            <input type="url" id="pitchDeck" name="pitchDeck">
+            <label for="description">Project Description:</label>
+            <textarea id="description" required></textarea>
+            <button type="submit">Submit Project</button>
+        </form>
+    </section>
+
+    <section id="community" class="col-lg-10 offset-1">
+        <h2>Community Discussions</h2>
+        <p>Join the conversation and collaborate with other talents.</p>
+        <div id="discussionFeed"></div>
+        <h3>Start a New Discussion</h3>
+        <form id="newPostForm">
+            <label for="newPost">Discussion Topic:</label>
+            <textarea id="newPost" required></textarea>
+            <button type="submit" class="btn btn-dark col-12">Post</button>
+        </form>
+    </section>
+
+    <section id="opportunities" class="col-lg-10 offset-1">
+        <h2>Opportunities</h2>
+        <p>Explore the latest crypto projects looking for talent.</p>
+        <label for="categoryFilter">Filter by category:</label>
+        <select id="categoryFilter" class="form-control">
+            <option value="all">All</option>
+            <option value="development">Development</option>
+            <option value="design">Design</option>
+            <option value="marketing">Marketing</option>
+            <option value="KOL">KOL Partnership</option>
+            <option value="creator">Content Creation</option>
+            <option value="discoverNewProjec">Discover New Project</option>
+        </select>
+        <div id="projectList"></div>
+    </section>
+
+    <section id="profile" class="col-lg-10 offset-1">
+        <h1>Your Profile</h1>
+        <form id="profileForm">
+            <label for="profilePicture">Profile Picture:</label>
+            <input type="url" id="profilePicture" name="profilePicture">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="country" required>
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="name" required>
+            <label for="email">Email Address:</label>
+            <input type="text" id="email" name="email" required>
+            <label for="skills">Skills:</label>
+            <input type="text" id="skills" name="skills" required>
+            <label for="experience">Experience:</label>
+            <textarea id="experience" name="experience" required></textarea>
+            <label for="profileLink">Media Profile Link:</label>
+            <input type="url" id="profileLink" name="profileLink">
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio"></textarea>
+            <button type="submit" class="btn btn-dark col-12">Save Changes</button>
+        </form>
+    </section>
+
+    <section id="walletConnect" class="col-lg-10 offset-1">
+        <h1>Connect Your Wallet</h1>
+        <div class="d-grid gap-2 col-12 mx-auto">
+            <button type="button" onclick="connectWallet('metamask')" class="btn btn-dark">MetaMask</button>
+            <button onclick="connectWallet('trustwallet')" class="btn btn-dark">Trust Wallet</button>
+            <button onclick="connectWallet('binance')" class="btn btn-dark">Binance Wallet</button>
+            <button onclick="connectWallet('bitget')" class="btn btn-dark">Bitget Wallet</button>
+        </div>
+    </section>
+
+    <section id="roadmap" class="col-lg-10 offset-1">
+        <h1>Roadmap</h1>
+        <p>Explore the planned phases and future features of the proSEED platform.</p>
+    <div class="row">
+
+        <div class="col-lg-6">
+            <div class="date">Q2-Q3 2024</div>
+            <i class="icon fa fa-home"></i>
+            <div class="content">
+                <h2>Phase 1: Conceptualization and Initial Development</h2>
+                <p>Start with the conceptualization of the proSEED platform, defining core objectives, assembling the team, and securing initial funding.</p>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="date">Q4 2024 - Q2 2025</div>
+            <i class="icon fa fa-gift"></i>
+            <div class="content">
+                <h2>Phase 2: Platform Development and Beta Launch</h2>
+                <p>Focus on completing the MVP, launching the beta version, CEX Listing and gathering user feedback to refine the platform.</p>
+            </div>
+        </div>
+        <!-- Repeat for other phases -->
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
