@@ -7,29 +7,20 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+    <script src="jquery.js"></script> 
+    <script> 
+    $(function(){
+      $("#includeNavbar").load("navbar.html"); 
+    });
+    </script>
 </head>
+
 <body class="bg-dark">
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light" id="nbar">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand" href="#">proSEED</a>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#dashboard">Dashboard</a>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="#opportunities">Opportunities</a></li>
-              <li class="nav-item"><a class="nav-link" href="#community">Community Discussions</a></li>
-              <li class="nav-item"><a class="nav-link" href="#profile">Profile</a></li>
-              <li class="nav-item"><a class="nav-link" href="#walletConnect">Wallet Connect</a></li>
-              <li class="nav-item"><a class="nav-link" href="#roadmap">Roadmap</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+
+    <div id="includeNavbar"></div>
+
     <!-- <nav class="col-lg-12 col-sm-6">
         <ul>
             <li><a href="#dashboard">Dashboard</a></li>
@@ -161,113 +152,8 @@
     <section id="leaderboard" class="col-lg-10 offset-1">
         <h2>Leaderboard</h2>
         <ul id="leaderboardList"></ul>
-    </section>
-
-    <section id="projects" class="col-lg-10 offset-1">
-        <h1>Register New Project</h1>
-        <form id="projectForm">
-            <label for="title">Project Title:</label>
-            <input type="text" id="title" required>
-            <label for="title">Project Native Token:</label>
-            <input type="text" id="token" required>
-            <label for="profileLink">Media Profile Link:</label>
-            <input type="url" id="profileLink" name="profileLink">
-            <label for="profileLink">Website:</label>
-            <input type="url" id="website" name="website">
-            <label for="whitepaper">Whitepaper Link:</label>
-            <input type="url" id="whitepaper" name="whitepaper">
-            <label for="pitchDeck">Pitch-Deck Link:</label>
-            <input type="url" id="pitchDeck" name="pitchDeck">
-            <label for="description">Project Description:</label>
-            <textarea id="description" required></textarea>
-            <button type="submit">Submit Project</button>
-        </form>
-    </section>
-
-    <section id="community" class="col-lg-10 offset-1">
-        <h2>Community Discussions</h2>
-        <p>Join the conversation and collaborate with other talents.</p>
-        <div id="discussionFeed"></div>
-        <h3>Start a New Discussion</h3>
-        <form id="newPostForm">
-            <label for="newPost">Discussion Topic:</label>
-            <textarea id="newPost" required></textarea>
-            <button type="submit" class="btn btn-dark col-12">Post</button>
-        </form>
-    </section>
-
-    <section id="opportunities" class="col-lg-10 offset-1">
-        <h2>Opportunities</h2>
-        <p>Explore the latest crypto projects looking for talent.</p>
-        <label for="categoryFilter">Filter by category:</label>
-        <select id="categoryFilter" class="form-control">
-            <option value="all">All</option>
-            <option value="development">Development</option>
-            <option value="design">Design</option>
-            <option value="marketing">Marketing</option>
-            <option value="KOL">KOL Partnership</option>
-            <option value="creator">Content Creation</option>
-            <option value="discoverNewProjec">Discover New Project</option>
-        </select>
-        <div id="projectList"></div>
-    </section>
-
-    <section id="profile" class="col-lg-10 offset-1">
-        <h1>Your Profile</h1>
-        <form id="profileForm">
-            <label for="profilePicture">Profile Picture:</label>
-            <input type="url" id="profilePicture" name="profilePicture">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="country" required>
-            <label for="country">Country:</label>
-            <input type="text" id="country" name="name" required>
-            <label for="email">Email Address:</label>
-            <input type="text" id="email" name="email" required>
-            <label for="skills">Skills:</label>
-            <input type="text" id="skills" name="skills" required>
-            <label for="experience">Experience:</label>
-            <textarea id="experience" name="experience" required></textarea>
-            <label for="profileLink">Media Profile Link:</label>
-            <input type="url" id="profileLink" name="profileLink">
-            <label for="bio">Bio:</label>
-            <textarea id="bio" name="bio"></textarea>
-            <button type="submit" class="btn btn-dark col-12">Save Changes</button>
-        </form>
-    </section>
-
-    <section id="walletConnect" class="col-lg-10 offset-1">
-        <h1>Connect Your Wallet</h1>
-        <div class="d-grid gap-2 col-12 mx-auto">
-            <button type="button" onclick="connectWallet('metamask')" class="btn btn-dark">MetaMask</button>
-            <button onclick="connectWallet('trustwallet')" class="btn btn-dark">Trust Wallet</button>
-            <button onclick="connectWallet('binance')" class="btn btn-dark">Binance Wallet</button>
-            <button onclick="connectWallet('bitget')" class="btn btn-dark">Bitget Wallet</button>
-        </div>
-    </section>
-
-    <section id="roadmap" class="col-lg-10 offset-1">
-        <h1>Roadmap</h1>
-        <p>Explore the planned phases and future features of the proSEED platform.</p>
-    <div class="row">
-
-        <div class="col-lg-6">
-            <div class="date">Q2-Q3 2024</div>
-            <i class="icon fa fa-home"></i>
-            <div class="content">
-                <h2>Phase 1: Conceptualization and Initial Development</h2>
-                <p>Start with the conceptualization of the proSEED platform, defining core objectives, assembling the team, and securing initial funding.</p>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="date">Q4 2024 - Q2 2025</div>
-            <i class="icon fa fa-gift"></i>
-            <div class="content">
-                <h2>Phase 2: Platform Development and Beta Launch</h2>
-                <p>Focus on completing the MVP, launching the beta version, CEX Listing and gathering user feedback to refine the platform.</p>
-            </div>
-        </div>
-        <!-- Repeat for other phases -->
-    </div>
+    </section>   
+     
     
     <script src="js/script.js"></script>
 </body>
