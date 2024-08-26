@@ -129,3 +129,10 @@ button:hover {
 #notificationList li.unread {
     font-weight: bold;
 }
+
+#roadmap {
+    padding: 10%;
+}
+#walletConnect, #community, #opportunities{
+    padding: 10%;
+}
